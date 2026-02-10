@@ -15,8 +15,13 @@ function App() {
   useEffect(() => {
     const fetchToken = async () => {
       try {
+        const isDevelopment = process.env.NODE_ENV === "development";
+        const tokenUrl = isDevelopment
+          ? "http://localhost:4000/embedded/hyperswitch"
+          : "/.netlify/functions/hyperswitch-token";
+
         const response = await fetch(
-          "http://localhost:4000/embedded/hyperswitch",
+          tokenUrl,
           {
             method: "GET",
             headers: {
@@ -37,9 +42,7 @@ function App() {
         }
       } catch (error) {
         console.error("Error fetching token:", error);
-        setErrorMessage(
-          "Failed to connect to backend server. Make sure it is running on port 4000.",
-        );
+        setErrorMessage("Failed to connect to backend token endpoint.");
         return undefined;
       }
     };
