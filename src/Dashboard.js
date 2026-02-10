@@ -93,10 +93,6 @@ export function Dashboard({ children, errorMessage, onRetry }) {
               <span className="nav-icon">⚙️</span>
               <span className="nav-text">Connector Config</span>
             </div>
-            <div className="nav-item">
-              <span className="nav-icon">💳</span>
-              <span className="nav-text">Payments</span>
-            </div>
           </nav>
         </aside>
 
