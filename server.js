@@ -11,11 +11,11 @@ app.use(express.json());
 app.get("/embedded/hyperswitch", async (req, res) => {
   try {
     const response = await axios.get(
-      "https://integ.hyperswitch.io/api/embedded/token",
+      "https://app.hyperswitch.io/api/embedded/token",
       {
         headers: {
           "api-key":
-            "",
+          "",
           "x-profile-id": "",
           "Content-Type": "application/json",
         },

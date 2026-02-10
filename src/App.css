@@ -16,33 +16,77 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 2.5rem;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-  /* Very subtle shadow, most of the separation comes from the border */
-  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.03);
+  background-color: #111827;
+  border-bottom: 1px solid #111827;
 }
 
-.header-left h1 {
-  margin: 0;
-  font-size: 1.1rem;
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.app-logo-mark {
+  display: grid;
+  grid-template-columns: repeat(2, 8px);
+  grid-template-rows: repeat(2, 8px);
+  gap: 3px;
+  padding: 6px;
+  border-radius: 8px;
+  background-color: rgba(31, 41, 55, 1);
+  box-shadow: 0 0 0 1px rgba(55, 65, 81, 0.8);
+}
+
+.app-logo-square {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: linear-gradient(135deg, #4f46e5, #22c55e);
+}
+
+.app-title {
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #1a202c;
-  letter-spacing: 0.01em;
+  color: #f9fafb;
+  letter-spacing: 0.02em;
 }
 
 .header-right {
   display: flex;
   align-items: center;
   gap: 1rem;
+  font-size: 0.9rem;
 }
 
-.header-right .user-info {
-  padding: 0.35rem 0.85rem;
-  background-color: #f3f4fb;
+.header-user-name {
+  color: #e5e7eb;
+}
+
+.header-avatar {
+  width: 32px;
+  height: 32px;
   border-radius: 999px;
-  color: #4a5568;
+  background-color: #111827;
+  border: 1px solid #4b5563;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.header-logout {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
   font-size: 0.85rem;
-  border: 1px solid rgba(148, 163, 184, 0.35);
+  cursor: pointer;
+  padding: 0;
+}
+
+.header-logout:hover {
+  color: #f3f4f6;
 }
 
 .dashboard-layout {
@@ -133,6 +177,106 @@
   font-size: 1rem;
 }
 
+/* Top metric cards */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.metric-value {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.metric-subvalue {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.metric-subvalue.positive {
+  color: #059669;
+}
+
+.metric-card.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: #f3f4f6;
+}
+
+.skeleton-line {
+  height: 10px;
+  background: linear-gradient(90deg,
+      #eceff4 0%,
+      #f9fafb 50%,
+      #eceff4 100%);
+  border-radius: 999px;
+  margin-bottom: 0.5rem;
+  animation: skeleton-loading 1.4s ease-in-out infinite;
+}
+
+.skeleton-line.short {
+  width: 50%;
+}
+
+.skeleton-line.medium {
+  width: 70%;
+  height: 16px;
+}
+
+.skeleton-line.tiny {
+  width: 35%;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    transform: translateX(-10%);
+  }
+
+  50% {
+    transform: translateX(10%);
+  }
+
+  100% {
+    transform: translateX(-10%);
+  }
+}
+
+.section-header {
+  margin-bottom: 1rem;
+}
+
+.section-header h3 {
+  margin: 0 0 0.35rem 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1f2933;
+}
+
+.section-header p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
 .embedded-container {
   background-color: #f7f8fa;
   border-radius: 10px;
@@ -148,6 +292,51 @@
   overflow-x: hidden;
   box-sizing: border-box;
   margin: 0;
+}
+
+/* Big connector skeleton loader (like second screenshot) */
+.connector-skeleton {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.connector-skeleton-icon-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.skeleton-pill {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: linear-gradient(90deg,
+      #e5e7eb 0%,
+      #f3f4f6 50%,
+      #e5e7eb 100%);
+  animation: skeleton-loading 1.4s ease-in-out infinite;
+}
+
+.connector-skeleton-body {
+  width: 60%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skeleton-block {
+  height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(90deg,
+      #e5e7eb 0%,
+      #f3f4f6 50%,
+      #e5e7eb 100%);
+  animation: skeleton-loading 1.4s ease-in-out infinite;
 }
 
 .embedded-container * {
