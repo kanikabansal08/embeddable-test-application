@@ -9,13 +9,14 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.13.2",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.4",
     "express": "^5.2.1",
+    "hyperswitch-control-center-embedded": "github:juspay/hyperswitch-control-center-embedded",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
-    "yarn": "^1.22.22",
-    "hyperswitch-control-center-embedded": "github:juspay/hyperswitch-control-center-embedded"
+    "yarn": "^1.22.22"
   },
   "scripts": {
     "start": "PORT=5000 react-scripts start",
