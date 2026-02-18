@@ -105,7 +105,7 @@ export function Dashboard({ children, errorMessage, onRetry }) {
           </div>
 
           {/* Top metric cards */}
-          <MetricsSection />
+          {/* <MetricsSection /> */}
 
           <div className="section-header">
             <h3>Connector Configuration</h3>
